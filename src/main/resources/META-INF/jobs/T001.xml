@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:batch="http://www.springframework.org/schema/batch" xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+             http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <import resource="classpath:META-INF/spring/job-base-context.xml" />
+
+    <context:annotation-config />
+    <context:component-scan
+        base-package="jp.co.u_idea2.batch.t001,jp.co.u_idea2.batch.common.listener,jp.co.u_idea2.batch.common.util" />
+
+
+
+    <batch:job id="T001" job-repository="jobRepository">
+        <batch:step id="T001.step01">
+            <batch:tasklet transaction-manager="jobTransactionManager"
+                ref="T001Tasklet">
+                <batch:listeners>
+                    <batch:listener ref="u_idea2ExceptionHandlingListener" />
+                </batch:listeners>
+            </batch:tasklet>
+        </batch:step>
+        <batch:listeners>
+            <batch:listener ref="jobExitCodeChangeListener" />
+            <batch:listener ref="jobLoggingListener" />
+        </batch:listeners>
+    </batch:job>
+
+</beans>

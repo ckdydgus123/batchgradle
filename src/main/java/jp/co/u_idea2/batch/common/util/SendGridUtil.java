@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class SendGridUtil {
 
-    private void sendMail(String from, String to, String cc, String bcc, String subject, String content) throws Exception{
+    public void sendMail(String from, String to, String cc, String bcc, String subject, String content) throws Exception{
         if (null == from || null == to){
             throw new Exception("From and To must exists.");
         }
