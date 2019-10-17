@@ -8,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-//        classpath 'org.postgresql:postgresql:9.4.1212.jre7'
+        classpath 'org.postgresql:postgresql:9.4.1212.jre7'
     }
 }
 plugins {
@@ -44,7 +44,7 @@ dependencies {
     runtime 'com.h2database:h2:1.4.196'
     runtime 'org.postgresql:postgresql:9.4.1212.jre7'
     compile group: 'com.sendgrid', name: 'sendgrid-java', version: '4.4.1'
-//    driver group: 'org.postgresql', name: 'postgresql'
+    driver group: 'org.postgresql', name: 'postgresql'
 }
 group = 'jp.co.u_idea2.batch'
 version = '2.0.1.RELEASE'
