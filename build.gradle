@@ -65,24 +65,25 @@ publishing {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
+task deleteFiles(type: Delete) {
+    delete fileTree('lib') {
+        include '**'
+    }
+}
 task copyJarToBin {
     copy {
         from 'build/libs/u_idea2-batch-2.0.1.RELEASE.jar'
         into "lib"
     }
-    copy{
-        into "META-INF"
-        from 'src/main/resource/META-INF/'
-        include 'jobs/**'
-    }
 }
+copyJarToBin.dependsOn(deleteFiles)
 task copyDependToLib{
     copy{
         into "lib"
         from configurations.runtime
     }
 }
+copyDependToLib.dependsOn(copyJarToBin)
 
 def db = [
         driver: "org.postgresql.Driver",
