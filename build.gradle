@@ -78,6 +78,12 @@ task copyDependToLib{
         from configurations.runtime
     }
 }
+task copyJob{
+    copy{
+        into "META-INF"
+        from 'src/main/resource/META-INF'
+    }
+}
 
 def db = [
         driver: "org.postgresql.Driver",
@@ -109,4 +115,4 @@ task queryTest () {
     }
 }
 //HEROKU Use Stage task to deploy
-task stage (dependsOn: [clean, queryTest, build, jar, copyJarToBin, copyDependToLib])
+task stage (dependsOn: [clean, queryTest, build, jar, copyJarToBin, copyDependToLib, copyJob])
