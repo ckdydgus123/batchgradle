@@ -3,6 +3,7 @@ package jp.co.u_idea2.batch.T001;
 import jp.co.u_idea2.batch.common.exception.U_idea2BatchException;
 import jp.co.u_idea2.batch.common.logging.LogMessages;
 import jp.co.u_idea2.batch.common.util.DateUtil;
+import jp.co.u_idea2.batch.common.util.SendGridUtil;
 import jp.co.u_idea2.batch.jbba00.FlightDto;
 import jp.co.u_idea2.batch.jbba01001.FlightUpdateDto;
 import jp.co.u_idea2.batch.jbba01001.JBBA01001BatchDao;
@@ -41,7 +42,8 @@ public class T001Tasklet implements Tasklet {
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 
 
-
+        SendGridUtil sgu = new SendGridUtil();
+        sgu.sendMail("ivan@ui2.co.jp","ivan@ui2.co.jp",null,null,"Testinf to send by gradle", "WOW, Sent Successfully");
 
         // ジョブ終了コード（0:正常終了）
         contribution.setExitStatus(new ExitStatus("NORMAL"));
