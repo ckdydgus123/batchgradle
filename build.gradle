@@ -132,11 +132,14 @@ task queryTest () {
 
     String sqlFilePath = "sql/postgres/test.sql"
     String sqlString = new File(sqlFilePath).text
-        def first
-        Sql.withInstance(db.url, db.user, db.password, db.driver) {
-            sql ->
-                first = sql.firstRow( sqlString )
-        }
+    groovy.sql.Sql sql = groovy.sql.Sql.newInstance(db.url, db.user, db.password, db.driver)
+
+    sql.execute(sqlString)
+//        def first
+//        Sql.withInstance(db.url, db.user, db.password, db.driver) {
+//            sql ->
+//                first = sql.firstRow( sqlString )
+//        }
     }
 }
 //HEROKU Use Stage task to deploy
