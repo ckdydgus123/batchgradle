@@ -1,0 +1,7 @@
+.gradle/
+.idea/
+build/
+inputFile/
+pombackup.xml
+lib/
+/.idea/libraries/
