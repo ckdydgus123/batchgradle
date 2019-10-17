@@ -1,0 +1,18 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/gradle"
+    }
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "batchgradle",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
