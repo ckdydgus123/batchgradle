@@ -65,3 +65,6 @@ task copyDependToLib{
     }
 }
 task buildApp (dependsOn: [clean, build, jar, copyJarToBin, copyDependToLib])
+
+/*HEROKU Deployment Use*/
+stage.dependsOn(buildApp)
