@@ -72,6 +72,10 @@ task copyJarToBin {
             into "lib"
         }
         copy {
+            from 'talend'
+            into "lib"
+        }
+        copy {
             into "lib"
             from configurations.runtime
         }

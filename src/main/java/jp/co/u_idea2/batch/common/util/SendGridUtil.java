@@ -18,13 +18,10 @@ public class SendGridUtil {
             throw new Exception("From and To must exists.");
         }
         Email fromSend = new Email(from);
-//        Email from = new Email("ivan@ui2.co.jp");
-//        from.setName("Ivan");
         Email ccSend, bccSend;
         String subjectSend = "Hello World from the SendGrid Java Library!";
         if (null!= subject) subjectSend=subject;
         Email toSend = new Email(to);
-//        Email to = new Email("ivan@ui2.co.jp");
         Content contentSend = new Content("text/plain", "Hello, Email!");
         if (null!= content) contentSend.setValue(content);
         Mail mail = new Mail();
