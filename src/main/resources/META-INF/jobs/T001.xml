@@ -10,7 +10,7 @@
 
     <context:annotation-config />
     <context:component-scan
-        base-package="jp.co.u_idea2.batch.t001,jp.co.u_idea2.batch.common.listener,jp.co.u_idea2.batch.common.util" />
+        base-package="jp.co.u_idea2.batch.T001,jp.co.u_idea2.batch.common.listener,jp.co.u_idea2.batch.common.util" />
 
 
 
